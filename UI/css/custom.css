@@ -1,0 +1,63 @@
+.site-sidenav {background: #ffffff;}
+.site-sidenav md-content {
+    background: transparent;
+}
+
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+    width:     272px;
+    min-width: 272px;
+    max-width: 272px;
+    height:100%;
+}
+.site-sidenav > * {
+    min-width: 218px;
+}
+
+.logo{
+    max-width:50%;
+}
+
+.text-and-div-center{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+.main-body{
+    overflow: hidden;
+}
+.image-center{
+    margin:10px;
+    text-align: center;
+}
+
+.main-header{
+    border-bottom:floralwhite;
+}
+
+.left-menu{
+    overflow-x: hidden;
+    margin-top :0px;
+
+
+}
+
+[left-menu-item]{
+    font-size: 20px;
+}
+
+div[main-content]{
+    margin-top: 64px;
+    /*margin-bottom:6%;*/
+
+    height: 100%;
+    height: -webkit-calc(100% - 64px);
+    height: -moz-calc(100% - 64px);
+    height: calc(100% - 64px);
+    overflow-x: hidden;
+}
+
+.tool-bar{
+    position: fixed;
+}

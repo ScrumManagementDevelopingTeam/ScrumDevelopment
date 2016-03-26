@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="css/third-party/angular-material.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body ng-app="ScrumManagement" class="main-body">
+<!--
+  Your HTML content here
+-->
+<div ng-controller="AppCtrl" layout="column" ng-cloak>
+    <section layout="row" flex>
+        <md-sidenav
+                class="md-sidenav-left site-sidenav"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-disable-backdrop
+                md-whiteframe="4">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">
+                    <span>欢迎:那个谁
+                        <br>当前角色:Scrum Master</span>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="toggleLeft()" hide-gt-md aria-label="收起菜单">
+                        <md-icon md-svg-icon="img/icons/tabs-arrow.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                </h1>
+            </md-toolbar>
+            <div class=" left-menu">
+                <div class="image-center">
+                    <img src="img/ScrumLogo.png" class="logo" align="middle" >
+                </div>
+                <h1 class="text-and-div-center">Scrum<br>软件开发过程管理系统</h1>
+                <hr>
+                <md-list>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>项目管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>团队管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>用户管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>Sprint Backlog管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>Product Backlog管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>查看迭代情况</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>Bug管理</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>迭代会议情况</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>回顾会议情况</div>
+                    </md-list-item>
+                    <md-list-item class="md-button ">
+                        <div class="md-ripple-container" left-menu-item>评审会议情况</div>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <md-content class="" ng-controller="LeftCtrl">
+                <div>
+
+                </div>
+            </md-content>
+        </md-sidenav>
+        <md-content flex>
+
+            <md-toolbar class="tool-bar md-whiteframe-glow-z1 site-content-toolbar">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                    </md-button>
+                    <h2>
+                        <span>模块的标题</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="More">
+                        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <div md-scroll-y>
+                <div main-content>
+                    <ng-view></ng-view>
+                </div>
+            </div>
+        </md-content>
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sidenav Right</h1>
+            </md-toolbar>
+            <md-content ng-controller="RightCtrl" layout-padding>
+                <form>
+                    <md-input-container>
+                        <label for="testInput">Test input</label>
+                        <input type="text" id="testInput"
+                               ng-model="data" md-autofocus>
+                    </md-input-container>
+                </form>
+                <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav Right
+                </md-button>
+            </md-content>
+        </md-sidenav>
+    </section>
+</div>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="javascript/third-party/angular.js"></script>
+<script src="javascript/third-party/angular-animate.js"></script>
+<script src="javascript/third-party/angular-aria.js"></script>
+<script src="javascript/third-party/angular-messages.js"></script>
+<script src="javascript/third-party/angular-route.js"></script>
+
+<!-- Angular Material Library -->
+<script src="javascript/third-party/angular-material.min.js"></script>
+
+<!-- Your application bootstrap  -->
+
+<script type="text/javascript" src="javascript/index.js"></script>
+
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
