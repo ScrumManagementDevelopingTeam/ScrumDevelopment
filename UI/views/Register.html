@@ -1,0 +1,62 @@
+<div ng-controller="RegisterCtrl" style="padding-top: 1%;" layout-align="center" layout="row" ng-cloak>
+
+
+    <md-content md-whiteframe="10">
+
+        <div>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h1>Scrum开发管理系统--注册</h1>
+                </div>
+            </md-toolbar>
+        </div>
+
+        <form id="registerForm" role="form" name="user" class="layout-padding" layout="column">
+
+            <div layout="row">
+                <md-input-container>
+                    <label>电子邮箱</label>
+                    <input required ng-model="user.Email" type="email">
+                </md-input-container>
+                <md-input-container>
+                    <label>姓名</label>
+                    <input required ng-model="user.Name">
+                </md-input-container>
+                <md-input-container>
+                    <label>用户名</label>
+                    <input required ng-model="user.UserName">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container>
+                    <label>电话号码</label>
+                    <input type="number" required ng-model="user.Phone">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>角色</label>
+                    <md-select ng-model="user.Role">
+                        <md-option ng-value="scrumRole" ng-repeat="scrumRole in ScrumRoles">{{scrumRole.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container>
+                    <label>密码</label>
+                    <input required ng-model="user.Password" type="password">
+                </md-input-container>
+                <md-input-container>
+                    <label>确认密码</label>
+                    <input required ng-model="user.RepeatPassword" type="password">
+                </md-input-container>
+            </div>
+
+        </form>
+
+        <div class="pull-right">
+            <md-button class="md-raised md-primary" ng-disabled="user.$invalid" ng-click="submitRegisterRequest()">提交</md-button>
+            <md-button class="md-raised" ng-click="backToLoginPage()">返回登录</md-button>
+        </div>
+    </md-content>
+
+</div>

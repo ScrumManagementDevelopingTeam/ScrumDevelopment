@@ -1,14 +1,7 @@
 /**
  * Created by RaynorChan on 3/19/16.
  */
-angular.
-
-module('ScrumManagement', ['ngMaterial', 'ngRoute']).
-config(function ($routeProvider, $locationProvider) {
-    $routeProvider.
-    when("/", {templateUrl:"./views/index.html"}).
-        when("/SprintBacklog", {templateUrl:"../views/SprintBacklog.html"})
-}).controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
         $scope.toggleRight = buildToggler('right');
         $scope.isOpenRight = function () {
