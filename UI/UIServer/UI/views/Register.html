@@ -35,7 +35,7 @@
 
                 <md-input-container>
                     <label>角色</label>
-                    <md-select ng-model="user.Role">
+                    <md-select required ng-model="user.Role">
                         <md-option ng-value="scrumRole" ng-repeat="scrumRole in ScrumRoles">{{scrumRole.name}}</md-option>
                     </md-select>
                 </md-input-container>
