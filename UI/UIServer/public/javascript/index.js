@@ -2,6 +2,10 @@
  * Created by RaynorChan on 3/19/16.
  */
 app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+        $scope.title = "模块标题";
+        $scope.$on("toolbarTitleChanged", function(event, data){
+            $scope.title=data;
+        });
         $scope.toggleLeft = buildDelayedToggler('left');
         $scope.toggleRight = buildToggler('right');
         $scope.isOpenRight = function () {
@@ -64,6 +68,9 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
                 });
         };
     })
+    .controller("MyHomeCtrl", function ($scope) {
+        changeToolbarTitle($scope, "我的首页");
+    })
     .controller("ToolbarCtrl", function ($scope) {
 
     })
@@ -97,3 +104,13 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     .controller("ProjectCtrl", function($scope){
 
     });
+
+
+/**
+ * Change the title in toolbar
+ * @param $scope current scope
+ * @param title String  title you want to set
+ */
+function changeToolbarTitle($scope, title){
+    $scope.$emit('toolbarTitleChanged', title);
+}

@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/third-party/angular-material.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <base href="/" />
 </head>
 <body ng-app="ScrumManagement" class="main-body">
 <!--
@@ -84,7 +85,7 @@
                         <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
                     </md-button>
                     <h2>
-                        <span>模块的标题</span>
+                        <span>{{title}}</span>
                     </h2>
                     <span flex></span>
                     <md-button class="md-icon-button" aria-label="Favorite">
@@ -96,7 +97,7 @@
                 </div>
             </md-toolbar>
             <div md-scroll-y>
-                <div main-content>
+                <div main-content >
                     <ng-view></ng-view>
                 </div>
             </div>

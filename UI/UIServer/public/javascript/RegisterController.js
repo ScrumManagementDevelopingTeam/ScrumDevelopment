@@ -15,6 +15,7 @@ loginApp.controller("RegisterCtrl", function ($scope, $location, $mdToast) {
     }
 
     function submitRegisterRequest(){
+        console.log($scope.user);
         $mdToast.show($mdToast.simple().textContent('注册成功!').position("top right")).then(function () {
             $mdToast.show($mdToast.simple().textContent('开始跳转!').position("top right"));
         });
