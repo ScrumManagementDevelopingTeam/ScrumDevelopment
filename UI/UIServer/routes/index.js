@@ -12,7 +12,7 @@ router.get("/login", function (req, res, next) {
 
 router.get('*', function(req, res, next) {
     console.log("aaa");
-    res.sendFile(path.join(PUBLICPATH + 'index.html'))
+    res.sendFile(path.join(PUBLICPATH + '/index.html'))
 });
 
 module.exports = router;

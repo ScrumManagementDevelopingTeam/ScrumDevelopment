@@ -5,7 +5,8 @@ var app = angular.module('ScrumManagement', ['ngMaterial', 'ngRoute']).config(fu
         requireBase:true});
 
     $routeProvider
-        .when("/", {templateUrl: "./views/index.html", controller:"MyHomeCtrl", controllerAs:"myHomeCtrl"})
+        .when("/", {templateUrl: "./views/index.html", controller:"MyHomeCtrl"})
+        .when("/Project", {templateUrl: "./views/Project.html", controller:"ProjectCtrl"})
         .when("/SprintBacklog", {templateUrl: "./views/SprintBacklog.html"})
         .when("/Admin", {templateUrl:"./views/Admin.html"})
 });

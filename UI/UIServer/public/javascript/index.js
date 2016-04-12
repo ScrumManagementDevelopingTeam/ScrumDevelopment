@@ -1,7 +1,58 @@
 /**
  * Created by RaynorChan on 3/19/16.
  */
-app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $location) {
+    $scope.menuItems = [
+        {
+            text:"项目管理",
+            url:"/Project"
+        },
+        {
+            text:"团队管理",
+            url:"/Project"
+        },
+        {
+            text:"用户管理",
+            url:"/Project"
+        },
+        {
+            text:"Sprint Backlog管理",
+            url:"/Project"
+        },
+        {
+            text:"Product Backlog管理",
+            url:"/Project"
+        },
+        {
+            text:"查看迭代情况",
+            url:"/Project"
+        },
+        {
+            text:"Bug管理",
+            url:"/Project"
+        },
+        {
+            text:"迭代会议情况",
+            url:"/Project"
+        },
+        {
+            text:"回顾会议情况",
+            url:"/Project"
+        },
+        {
+            text:"评审会议情况",
+            url:"/Project"
+        },
+        {
+            text:"管理员",
+            url:"/Project"
+        },
+        {
+            text:"项目管理",
+            url:"/Project"
+        },
+
+    ];
         $scope.title = "模块标题";
         $scope.$on("toolbarTitleChanged", function(event, data){
             $scope.title=data;
@@ -10,6 +61,10 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleRight = buildToggler('right');
         $scope.isOpenRight = function () {
             return $mdSidenav('right').isOpen();
+        };
+
+        $scope.go = function ( path ) {
+            $location.path( path );
         };
         /**
          * Supplies a function that will continue to operate until the
@@ -70,9 +125,114 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     })
     .controller("MyHomeCtrl", function ($scope) {
         changeToolbarTitle($scope, "我的首页");
+
+        var imagePath = 'img/list/60.jpeg';
+        $scope.todos = [
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            }
+        ];
     })
     .controller("ToolbarCtrl", function ($scope) {
 
+    })
+    .controller("ProjectCtrl", function ($scope) {
+        changeToolbarTitle($scope, "项目管理");
     })
     .controller("IndexCtrl", function($scope){
 
@@ -87,7 +247,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
 
     })
     .controller("UsersCtrl", function($scope){
-
+        changeToolbarTitle($scope, "用户管理");
     })
     .controller("BugCtrl", function($scope){
 
@@ -99,7 +259,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
 
     })
     .controller("TeamCtrl", function($scope){
-
+        changeToolbarTitle($scope, "团队管理");
     })
     .controller("ProjectCtrl", function($scope){
 
