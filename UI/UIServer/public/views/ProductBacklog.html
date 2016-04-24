@@ -1,0 +1,66 @@
+<md-content layout-padding layout="column" ng-cloak>
+    <h2 class="md-title">Product Backlog 管理<span>
+        <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+            <md-icon md-svg-src="img/icons/ic_launch_white_48px.svg"></md-icon>
+        </md-button>
+    </span>当前项目:<span style="color: #560f94;">{{currentProject.name}}</span> </h2>
+
+    <div layout="row" md-whiteframe="2">
+        <div flex>
+            <md-content >
+
+                <md-list style="height: 25em;" >
+                    <md-subheader class="md-no-sticky">当前的Product Backlog</md-subheader>
+
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in todos" ng-click="null">
+                        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                        <div class="md-list-item-text" layout="column">
+                            <h4>{{ item.what }}</h4>
+                        </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                </md-list>
+            </md-content>
+
+        </div>
+        <div flex>
+            <md-content>
+                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label="添加工程">
+                    <md-icon  md-svg-src="img/icons/ic_delete_forever_white_48px.svg"></md-icon>
+                </md-button>
+            </md-content>
+            <md-card >
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Action buttons</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Action 1</md-button>
+                    <md-button>Action 2</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</md-content>

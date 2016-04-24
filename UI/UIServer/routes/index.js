@@ -10,6 +10,12 @@ router.get("/login", function (req, res, next) {
     res.sendFile(path.join(PUBLICPATH, 'Login.html'))
 });
 
+router.get("/Register", function (req, res, next) {
+    console.log(__dirname);
+
+    res.sendFile(path.join(PUBLICPATH, 'Login.html'))
+});
+
 router.get('*', function(req, res, next) {
     console.log("aaa");
     res.sendFile(path.join(PUBLICPATH + '/index.html'))

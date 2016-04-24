@@ -17,11 +17,11 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         },
         {
             text:"Sprint Backlog管理",
-            url:"/Project"
+            url:"/SprintBacklog"
         },
         {
             text:"Product Backlog管理",
-            url:"/Project"
+            url:"/ProductBacklog"
         },
         {
             text:"查看迭代情况",
@@ -50,7 +50,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         {
             text:"项目管理",
             url:"/Project"
-        },
+        }
 
     ];
         $scope.title = "模块标题";
@@ -233,18 +233,322 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("ProjectCtrl", function ($scope) {
         changeToolbarTitle($scope, "项目管理");
+        var imagePath = 'img/list/60.jpeg';
+        $scope.todos = [
+            {
+                face : imagePath,
+                what: '2016大唐审计管理系统',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '2016天职工程工作平台',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '项目3',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '项目4',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '项目5',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '项目6',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: '项目7',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            }
+        ];
     })
     .controller("IndexCtrl", function($scope){
 
     })
     .controller("SprintBacklogCtrl", function($scope){
-
+        changeToolbarTitle($scope, "Sprint Backlog 管理");
+        $scope.currentProject = {};
+        $scope.currentProject.name = "项目1"
+        var imagePath = 'img/list/60.jpeg';
+        $scope.todos = [
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            }
+        ];
     })
     .controller("ProductBacklogCtrl", function($scope){
-
-    })
-    .controller("ProductBacklogCtrl", function($scope){
-
+        changeToolbarTitle($scope, "Product Backlog 管理");
+        $scope.currentProject = {};
+        $scope.currentProject.name = "项目1"
+        var imagePath = 'img/list/60.jpeg';
+        $scope.todos = [
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            },
+            {
+                face : imagePath,
+                what: 'Brunch this weekend?',
+                who: 'Min Li Chan',
+                when: '3:08PM',
+                notes: " I'll be in your neighborhood doing errands"
+            }
+        ];
     })
     .controller("UsersCtrl", function($scope){
         changeToolbarTitle($scope, "用户管理");
@@ -260,9 +564,6 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("TeamCtrl", function($scope){
         changeToolbarTitle($scope, "团队管理");
-    })
-    .controller("ProjectCtrl", function($scope){
-
     });
 
 
