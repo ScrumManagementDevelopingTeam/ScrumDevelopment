@@ -1,0 +1,50 @@
+<md-dialog aria-label="新建项目"  ng-cloak>
+    <form id="project" role="form" name="Project" layout="column">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>新建项目</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                    <div layout="row">
+                        <md-input-container>
+                            <label>项目名称</label>
+                            <input required ng-model="Project.Name" type="text">
+                        </md-input-container>
+                        <div>
+                            <md-datepicker required ng-model="Project.CreateTime" md-placeholder="项目创建时间"></md-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row">
+                        <div><md-datepicker required ng-model="Project.ExpiredDeliverTime" md-placeholder="项目交付时间"></md-datepicker></div>
+
+                    </div>
+                    <div layout="column">
+                        <md-input-container>
+                            <label>项目描述</label>
+                            <textarea ng-model="Project.Description" required md-maxlength="300" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
+                    </div>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+                <!--More on Wikipedia-->
+            <!--</md-button>-->
+            <span flex></span>
+            <md-button ng-disabled="Project.$invalid" ng-click="answer('not useful')">
+                确定
+            </md-button>
+            <md-button ng-click="answer('useful')" style="margin-right:20px;">
+                取消
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

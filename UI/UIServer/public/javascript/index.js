@@ -24,12 +24,12 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             url:"/ProductBacklog"
         },
         {
-            text:"查看迭代情况",
-            url:"/Project"
+            text:"查看燃尽图",
+            url:"/BurningDownChart"
         },
         {
             text:"Bug管理",
-            url:"/Project"
+            url:"/Bugs"
         },
         {
             text:"迭代会议情况",
@@ -231,8 +231,34 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("ToolbarCtrl", function ($scope) {
 
     })
-    .controller("ProjectCtrl", function ($scope) {
+    //项目管理部分
+    .controller("ProjectCtrl", function ($scope, $mdDialog, $mdMedia) {
         changeToolbarTitle($scope, "项目管理");
+
+        //弹出添加项目对话框
+        $scope.showAddProjectDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddProjectCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddProject.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
         var imagePath = 'img/list/60.jpeg';
         $scope.todos = [
             {
@@ -341,7 +367,50 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("SprintBacklogCtrl", function($scope){
         changeToolbarTitle($scope, "Sprint Backlog 管理");
         $scope.currentProject = {};
-        $scope.currentProject.name = "项目1"
+        $scope.currentProject.name = "项目1";
+
+
+        $scope.projects = [
+
+
+        ];
+        for (var j = 1; j<=10; j++){
+            $scope.projects.push({
+                Id: guid(),
+                Name:"项目"+j,
+                CreateTime:Date.now(),
+                ExpiredDeliverTime:Date.now(),
+                Description:"项目"+j+"描述"
+            });
+        }
+
+        $scope.ProductBacklogs = [
+
+        ];
+
+        for (var i=1; i<=10; i++){
+            $scope.ProductBacklogs.push({
+                Id: guid(),
+                UserStory:"用户故事"+i,
+                Order:i,
+                CreateTime:Date.now(),
+            })
+        }
+
+        $scope.SprintBacklogs = [];
+
+        for (var i = 1; i<=10; i++){
+            $scope.SprintBacklogs.push({
+                id:guid(),
+                MissionTitle:"任务标题" +i,
+                Mission:"任务详细描述"+i,
+                CreateTime:Date.now()
+            });
+        };
+
+
+
+
         var imagePath = 'img/list/60.jpeg';
         $scope.todos = [
             {
@@ -444,111 +513,63 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             }
         ];
     })
-    .controller("ProductBacklogCtrl", function($scope){
+    .controller("ProductBacklogCtrl", function($scope, $mdMedia, $mdDialog){
         changeToolbarTitle($scope, "Product Backlog 管理");
         $scope.currentProject = {};
-        $scope.currentProject.name = "项目1"
-        var imagePath = 'img/list/60.jpeg';
-        $scope.todos = [
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            }
+        $scope.currentProject.name = "项目1";
+
+        //弹出添加项目对话框
+        $scope.showAddProductBacklogDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddProductBacklogCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddProductBacklog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+
+        $scope.projects = [
+
+
         ];
+        for (var j = 1; j<=10; j++){
+            $scope.projects.push({
+                Id: guid(),
+                Name:"项目"+j,
+                CreateTime:Date.now(),
+                ExpiredDeliverTime:Date.now(),
+                Description:"项目"+j+"描述"
+            });
+        }
+
+        $scope.ProductBacklog = [
+
+        ];
+
+        for (var i=1; i<=10; i++){
+            $scope.ProductBacklog.push({
+                Id: guid(),
+                UserStory:"用户故事"+i,
+                Order:i,
+                CreateTime:Date.now(),
+            })
+        }
+
     })
     .controller("UsersCtrl", function($scope){
         changeToolbarTitle($scope, "用户管理");
@@ -564,6 +585,87 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("TeamCtrl", function($scope){
         changeToolbarTitle($scope, "团队管理");
+    })
+    .controller("BurningDownChartCtrl", function ($scope) {
+        //the burning down chart container id is BurningDownChartContainer
+
+        $scope.Sprints = [];
+        for (var i = 1; i <= 10; i ++){
+            $scope.Sprints.push({
+                Number : i,
+                Title:"迭代"+i,
+                Comment:"这是第"+i+"次迭代 "
+            });
+        }
+
+        var CurrentSprintNumber = 3;
+        var CurrentProjectName = "2016天职国际工作平台V4.0";
+        $('#BurningDownChartContainer').highcharts({
+            title: {
+                text: '迭代'+CurrentSprintNumber+"燃尽图",
+                x: -20 //center
+            },
+            subtitle: {
+                text: '所属项目: ' + CurrentProjectName,
+                x: -20
+            },
+            xAxis: {
+                title: {
+                    text: '迭代天数(天)'
+                },
+                categories: ['0', '1', '2', '3', '4', '5',
+                    '6', '7', '8', '9', '10', '11', '12']
+            },
+            yAxis: {
+                title: {
+                    text: '任务数量(个)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '个'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '预期完成数量',
+                data: [12, 11, 10, 9, 8,7,6,5,4,3,2,1]
+            }, {
+                name: '任务完成数量',
+                data: [12, 10, 9, 9, 7, 6, 5, 5, 5, 4, 3, 0]
+            }]
+        });
+    })
+    .controller("AddProjectCtrl", function ($scope, $mdDialog){
+        //Dialog Operations
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
+    .controller("AddProductBacklogCtrl", function ($scope, $mdDialog) {
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
     });
 
 
@@ -574,4 +676,18 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
  */
 function changeToolbarTitle($scope, title){
     $scope.$emit('toolbarTitleChanged', title);
+}
+
+/**
+ * generate GUID
+ * @returns  {string} Guid
+ */
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
 }
