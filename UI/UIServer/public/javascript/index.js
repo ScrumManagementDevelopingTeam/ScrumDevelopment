@@ -46,10 +46,6 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         {
             text:"管理员",
             url:"/Project"
-        },
-        {
-            text:"项目管理",
-            url:"/Project"
         }
 
     ];
@@ -364,11 +360,34 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("IndexCtrl", function($scope){
 
     })
-    .controller("SprintBacklogCtrl", function($scope){
+    .controller("SprintBacklogCtrl", function($scope, $mdMedia, $mdDialog){
         changeToolbarTitle($scope, "Sprint Backlog 管理");
         $scope.currentProject = {};
         $scope.currentProject.name = "项目1";
 
+        //弹出添加项目对话框
+        $scope.showAddSprintBacklogDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddSprintBacklogCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddSprintBacklog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
 
         $scope.projects = [
 
@@ -566,7 +585,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
                 Id: guid(),
                 UserStory:"用户故事"+i,
                 Order:i,
-                CreateTime:Date.now(),
+                CreateTime:Date.now()
             })
         }
 
@@ -574,7 +593,41 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("UsersCtrl", function($scope){
         changeToolbarTitle($scope, "用户管理");
     })
-    .controller("BugCtrl", function($scope){
+    .controller("BugCtrl", function($scope, $mdMedia, $mdDialog){
+        $scope.showAddBugDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddBugCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddBug.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+        changeToolbarTitle($scope, "Bug 管理");
+        $scope.currentProject = {};
+        $scope.currentProject.name = "2016天职国际工作平台V4.0";
+        $scope.Sprints = [{Number:1, Title:"当用户点击\"登录\"按钮的时候,界面没有反应"}];
+        for (var i = 1; i <= 10; i ++){
+            $scope.Sprints.push({
+                Number : i,
+                Title:"Bug"+i,
+                Comment:"这是第"+i+"次迭代 "
+            });
+        }
 
     })
     .controller("PlanningMeetingCtrl", function($scope){
@@ -589,6 +642,9 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("BurningDownChartCtrl", function ($scope) {
         //the burning down chart container id is BurningDownChartContainer
 
+        changeToolbarTitle($scope, "燃尽图");
+        $scope.currentProject = {};
+        $scope.currentProject.name = "2016天职国际工作平台V4.0";
         $scope.Sprints = [];
         for (var i = 1; i <= 10; i ++){
             $scope.Sprints.push({
@@ -618,7 +674,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             },
             yAxis: {
                 title: {
-                    text: '任务数量(个)'
+                    text: '工作量(理想人/天)'
                 },
                 plotLines: [{
                     value: 0,
@@ -646,6 +702,42 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("AddProjectCtrl", function ($scope, $mdDialog){
         //Dialog Operations
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
+    .controller("AddSprintBacklogCtrl", function ($scope, $mdDialog){
+        //Dialog Operations
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
+    .controller("AddBugCtrl", function($scope, $mdDialog){
+
+        $scope.SprintBacklogs = [];
+
+        for (var i = 1; i<=10; i++){
+            $scope.SprintBacklogs.push({
+                id:guid(),
+                MissionTitle:"任务标题" +i,
+                Mission:"任务详细描述"+i,
+                CreateTime:Date.now()
+            });
+        }
+
+
         $scope.hide = function() {
             $mdDialog.hide();
         };

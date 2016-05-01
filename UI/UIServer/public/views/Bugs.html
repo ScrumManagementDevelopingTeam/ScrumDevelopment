@@ -11,12 +11,11 @@
             <md-content >
 
                 <md-list style="height: 25em;" >
-                    <md-subheader class="md-no-sticky">迭代列表</md-subheader>
+                    <md-subheader class="md-no-sticky">开放给我的Bug</md-subheader>
 
-                    <md-list-item style="height: 4.3em;" ng-repeat="item in todos" ng-click="null">
-                        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in Sprints" ng-click="null">
                         <div class="md-list-item-text" layout="column">
-                            <h4>{{ item.what }}</h4>
+                            <h4>{{ item.Title }}</h4>
                         </div>
                     </md-list-item>
                     <md-divider ></md-divider>
@@ -31,18 +30,43 @@
             <div flex>
                 <md-content >
 
-                    <md-list style="height: 25em;" >
-                        <md-subheader class="md-no-sticky">燃尽图</md-subheader>
 
-                        <md-list-item style="height: 4.3em;" ng-repeat="item in todos" ng-click="null">
-                            <md-checkbox role="checkbox"></md-checkbox>
-                            <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
-                            <div class="md-list-item-text" layout="column">
-                                <h4>{{ item.what }}</h4>
+                    <md-content>
+                        <md-button class="md-fab md-mini md-primary" ng-click="showAddBugDialog()" aria-label="添加工程">
+                            <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                            <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-fab md-mini" aria-label="添加工程">
+                            <md-icon  md-svg-src="img/icons/ic_delete_forever_white_48px.svg"></md-icon>
+                        </md-button>
+                    </md-content>
+                    <md-card >
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">BUG详情</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <div class="md-title">
+                                标题
                             </div>
-                        </md-list-item>
-                        <md-divider ></md-divider>
-                    </md-list>
+                            <p>当用户点击"登录"按钮的时候,界面没有反应</p>
+                            <div class="md-title">
+                                Bug描述
+                            </div>
+                            <p style="white-space: pre-line;">1.用户在登录页面中输入用户名和密码
+                                2.用户点击"登录"按钮
+                                3.界面没有反应</p>
+                            <div class="md-title">期望的结果</div>
+                            <p style="white-space: pre-line;">用户可以正常登录</p>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>标记为"Closed"</md-button>
+                            <md-button>标记为"Can not duplicate"</md-button>
+                        </md-card-actions>
+                    </md-card>
                 </md-content>
 
             </div>

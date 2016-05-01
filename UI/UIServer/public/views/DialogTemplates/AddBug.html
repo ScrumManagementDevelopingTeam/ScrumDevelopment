@@ -2,7 +2,7 @@
     <form id="project" role="form" name="ProductBacklog" layout="column">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>ProductBacklog</h2>
+                <h2>Bug</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -12,26 +12,42 @@
         <md-dialog-content>
             <div class="md-dialog-content">
 
+                <h3>Sprint Backlog相关信息</h3>
                 <div layout="row">
+                    <div style="margin-right: 30pt;width: 15em;">
+                        <h4>任务标题</h4>
+                        <md-select required ng-model="Bug.MissionId">
+                            <md-option ng-repeat="item in SprintBacklogs"  value="{{item.id}}">
+                                {{item.MissionTitle}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                    <div style="margin-right: 30pt; max-width: 300pt;">
+                        <h4>任务详情</h4>
+
+                        <div>用户输入用户名和密码之后,点击"登录"按钮之后的操作</div>
+                    </div>
+                </div>
+
+                <h4>待创建Bug相关信息</h4>
+                <div layout="row">
+
                     <md-input-container>
-                        <label>UserStory标题</label>
-                        <input required ng-model="ProductBacklog.UserStoryTitle" type="text">
+                        <label>Bug标题</label>
+                        <input required ng-model="Bug.Title" type="text">
                     </md-input-container>
                     <md-input-container>
-                        <label>UserStory优先级</label>
-                        <input required ng-model="ProductBacklog.Order" type="number">
+                        <label>Bug修复预估工作量</label>
+                        <input required ng-model="Bug.Point" type="number">
                     </md-input-container>
                 </div>
                 <div layout="row">
-                    <div>
-                        <md-datepicker required ng-model="ProductBacklog.DeadLine" md-placeholder="最晚完成时间"></md-datepicker>
-                    </div>
 
                 </div>
                 <div layout="column">
                     <md-input-container>
-                        <label>UserStory详情</label>
-                        <textarea ng-model="ProductBacklog.UserStory" required md-maxlength="300" rows="5" md-select-on-focus></textarea>
+                        <label>Bug详情</label>
+                        <textarea ng-model="Bug.Details" required md-maxlength="300" rows="5" md-select-on-focus></textarea>
                     </md-input-container>
                 </div>
 
