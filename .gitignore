@@ -1,4 +1,4 @@
-﻿*.DS_Store
+*.DS_Store
 
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -21,7 +21,7 @@
 x64/
 x86/
 bld/
-[Bb]in/
+
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
