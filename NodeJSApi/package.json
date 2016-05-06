@@ -1,5 +1,5 @@
 {
-  "name": "NodeJSApi",
+  "name": "NodeJsApi",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
-    "mongoose": "^4.4.13",
+    "mongoose": "^4.4.14",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   }

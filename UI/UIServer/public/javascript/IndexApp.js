@@ -16,4 +16,6 @@ var app = angular.module('ScrumManagement', ['ngMaterial', 'ngRoute']).config(fu
         .when("/Admin", {templateUrl:"./views/Admin.html"})
         .when("/BurningDownChart", {templateUrl:"./views/BurningDownChart.html", controller:"BurningDownChartCtrl"})
         .when("/Bugs", {templateUrl:"./views/Bugs.html", controller:"BugCtrl"})
+        .when("/Teams", {templateUrl:"./views/Team.html", controller:"TeamCtrl"})
+        .when("/Users", {templateUrl:"./views/Users.html", controller:"UsersCtrl"})
 });

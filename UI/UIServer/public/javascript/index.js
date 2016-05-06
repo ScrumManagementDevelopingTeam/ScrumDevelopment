@@ -9,11 +9,11 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         },
         {
             text:"团队管理",
-            url:"/Project"
+            url:"/Teams"
         },
         {
             text:"用户管理",
-            url:"/Project"
+            url:"/Users"
         },
         {
             text:"Sprint Backlog管理",
@@ -592,6 +592,14 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("UsersCtrl", function($scope){
         changeToolbarTitle($scope, "用户管理");
+
+        $scope.Users = [{Name:"陈天运", Id:guid()}];
+        for (var i = 1; i<=10; i++){
+            $scope.Users.push({
+                Name:"用户"+i,
+                Id:guid()
+            })
+        }
     })
     .controller("BugCtrl", function($scope, $mdMedia, $mdDialog){
         $scope.showAddBugDialog = function (ev) {
@@ -638,6 +646,14 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("TeamCtrl", function($scope){
         changeToolbarTitle($scope, "团队管理");
+        $scope.Teams = [{TeamId:guid(), TeamName:"天职国际工作平台V4.0开发团队", TeamDescription:"天职国际"}];
+        for(var i = 1; i<=10; i++){
+            $scope.Teams.push({
+                TeamId : guid(),
+                TeamName: "测试团队"+i,
+                TeamDescription: "测试团队"+i
+            })
+        }
     })
     .controller("BurningDownChartCtrl", function ($scope) {
         //the burning down chart container id is BurningDownChartContainer

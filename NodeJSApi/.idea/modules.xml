@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/NodeJSApi.iml" filepath="$PROJECT_DIR$/.idea/NodeJSApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NodeJsApi.iml" filepath="$PROJECT_DIR$/.idea/NodeJsApi.iml" />
     </modules>
   </component>
 </project>

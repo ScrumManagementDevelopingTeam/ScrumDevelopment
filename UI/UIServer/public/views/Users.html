@@ -1,0 +1,74 @@
+<md-content layout-padding layout="column" ng-cloak>
+    <h2 class="md-title">用户管理</h2>
+
+    <div layout="row" md-whiteframe="2">
+        <div flex>
+            <md-content >
+
+                <md-list style="height: 25em;" >
+                    <md-subheader class="md-no-sticky">当前系统中的用户</md-subheader>
+
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in Users" ng-click="null">
+                        <div class="md-list-item-text" layout="column">
+                            <h4>{{ item.Name }}</h4>
+                        </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                </md-list>
+            </md-content>
+
+        </div>
+        <div flex>
+            <md-content>
+                <md-button class="md-fab md-mini md-primary" ng-click="showAddProductBacklogDialog()" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label="添加工程">
+                    <md-icon  md-svg-src="img/icons/ic_delete_forever_white_48px.svg"></md-icon>
+                </md-button>
+            </md-content>
+            <md-card >
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline"></span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <div class="md-title">
+                        用户姓名
+                    </div>
+                    <p>陈天运</p>
+                    <div layout="row">
+                        <div>
+                            <div class="md-title">
+                                用户所属团队
+                            </div>
+                            <p>天职国际工作平台V4.0开发团队</p>
+                        </div>
+
+                        <!--<div style="padding-left: 30pt;">-->
+                            <!--<div class="md-title">最晚完成时间</div>-->
+                            <!--<p>-->
+                                <!--2016-5-23-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    </div>
+
+                    <!--<div>-->
+                        <!--<div class="md-title">User Story 详情</div>-->
+                        <!--<p>-->
+                            <!--在登录界面中,用户需要增加找回密码功能,以便于用户在忘记密码的情况下找回自己的密码-->
+                        <!--</p>-->
+                    <!--</div>-->
+
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>删除用户</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</md-content>

@@ -1,0 +1,75 @@
+<md-content layout-padding layout="column" ng-cloak>
+    <h2 class="md-title">团队管理</h2>
+
+    <div layout="row" md-whiteframe="2">
+        <div flex>
+            <md-content >
+
+                <md-list style="height: 25em;" >
+                    <md-subheader class="md-no-sticky">当前系统中的团队</md-subheader>
+
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in Teams" ng-click="null">
+                        <div class="md-list-item-text" layout="column">
+                            <h4>{{ item.TeamName }}</h4>
+                        </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                </md-list>
+            </md-content>
+
+        </div>
+        <div flex>
+            <md-content>
+                <md-button class="md-fab md-mini md-primary" ng-click="showAddProductBacklogDialog()" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                    <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-mini" aria-label="添加工程">
+                    <md-icon  md-svg-src="img/icons/ic_delete_forever_white_48px.svg"></md-icon>
+                </md-button>
+            </md-content>
+            <md-card >
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline"></span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <div class="md-title">
+                        团队名称
+                    </div>
+                    <p>天职国际工作平台V4.0开发团队</p>
+                    <div layout="row">
+                        <div>
+                            <div class="md-title">
+                                团队描述
+                            </div>
+                            <p>天职国际工作平台V4.0开发团队</p>
+                        </div>
+
+                        <!--<div style="padding-left: 30pt;">-->
+                            <!--<div class="md-title">最晚完成时间</div>-->
+                            <!--<p>-->
+                                <!--2016-5-23-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    </div>
+
+                    <div>
+                        <div class="md-title">团队成员</div>
+                        <p>
+                            用户1 用户2 用户3 用户4
+                        </p>
+                    </div>
+
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>标记为完成</md-button>
+                    <md-button>提前优先级</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</md-content>
