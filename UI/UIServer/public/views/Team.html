@@ -8,9 +8,9 @@
                 <md-list style="height: 25em;" >
                     <md-subheader class="md-no-sticky">当前系统中的团队</md-subheader>
 
-                    <md-list-item style="height: 4.3em;" ng-repeat="item in Teams" ng-click="null">
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in Teams" ng-click="onTeamItemClicked(item)">
                         <div class="md-list-item-text" layout="column">
-                            <h4>{{ item.TeamName }}</h4>
+                            <h4>{{ item.Name }}</h4>
                         </div>
                     </md-list-item>
                     <md-divider ></md-divider>
@@ -20,10 +20,10 @@
         </div>
         <div flex>
             <md-content>
-                <md-button class="md-fab md-mini md-primary" ng-click="showAddProductBacklogDialog()" aria-label="添加工程">
+                <md-button class="md-fab md-mini md-primary" ng-click="showAddTeamBacklog()" aria-label="添加工程">
                     <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                <md-button class="md-fab md-mini md-primary" ng-hide="!CurrentSelectedTeam" ng-click="showSelectProjectDialog()" aria-label="添加工程">
                     <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" aria-label="添加工程">
@@ -40,13 +40,18 @@
                     <div class="md-title">
                         团队名称
                     </div>
-                    <p>天职国际工作平台V4.0开发团队</p>
+                    <p>{{CurrentSelectedTeam.Name}}</p>
+
+                    <div class="md-title">
+                        所属项目
+                    </div>
+                    <p>{{CurrentSelectedTeam.ProjectName}}</p>
                     <div layout="row">
                         <div>
                             <div class="md-title">
                                 团队描述
                             </div>
-                            <p>天职国际工作平台V4.0开发团队</p>
+                            <p>{{CurrentSelectedTeam.Description}}</p>
                         </div>
 
                         <!--<div style="padding-left: 30pt;">-->
@@ -60,15 +65,11 @@
                     <div>
                         <div class="md-title">团队成员</div>
                         <p>
-                            用户1 用户2 用户3 用户4
+                            <span ng-repeat="item in CurrentTeamUsers">{{item.Name + " "}}</span>
                         </p>
                     </div>
 
                 </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>标记为完成</md-button>
-                    <md-button>提前优先级</md-button>
-                </md-card-actions>
             </md-card>
         </div>
     </div>

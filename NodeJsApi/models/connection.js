@@ -5,7 +5,9 @@
 var mongoose = require("mongoose");
 var connectionString = require("../config").DbConnectionString;
 
-var db = mongoose.connect(connectionString);
+mongoose.connect(connectionString);
+
+var db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "mongoose: connection error:"));
 db.on("open", function () {

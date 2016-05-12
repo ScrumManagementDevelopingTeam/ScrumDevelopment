@@ -1,3 +1,4 @@
+
 var app = angular.module('ScrumManagement', ['ngMaterial', 'ngRoute']).config(function ($routeProvider, $locationProvider, $mdIconProvider) {
 
     $mdIconProvider

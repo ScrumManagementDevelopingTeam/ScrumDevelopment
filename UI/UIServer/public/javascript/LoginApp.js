@@ -1,3 +1,6 @@
+
+
+
 var loginApp = angular
     .module('MyApp',['ngMaterial','ngRoute', 'ngMessages', 'material.svgAssetsCache'])
 
@@ -8,6 +11,6 @@ var loginApp = angular
 
         $routeProvider
             .when("/Login", {templateUrl:"views/Login.html"})
-            .when("/Register", {templateUrl: "views/Register.html"})
+            .when("/Register", {templateUrl: "views/Register.html", controller:"RegisterCtrl"})
             .when("/", {redirectTo:"/Login"})
     });

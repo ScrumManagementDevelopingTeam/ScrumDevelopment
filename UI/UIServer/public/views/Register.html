@@ -1,4 +1,4 @@
-<div ng-controller="RegisterCtrl" style="padding-top: 1%;" layout-align="center" layout="row" ng-cloak>
+<div style="padding-top: 1%;" layout-align="center" layout="row" ng-cloak>
 
 
     <md-content md-whiteframe="10">
@@ -11,21 +11,24 @@
             </md-toolbar>
         </div>
 
-        <form id="registerForm" role="form" name="user" class="layout-padding" layout="column">
+        <form id="registerForm" role="form" name="userForm" class="layout-padding" layout="column">
 
             <div layout="row">
                 <md-input-container>
                     <label>电子邮箱</label>
                     <input required ng-model="user.Email" type="email">
                 </md-input-container>
-                <md-input-container>
-                    <label>姓名</label>
-                    <input required ng-model="user.Name">
-                </md-input-container>
+
                 <md-input-container>
                     <label>用户名</label>
                     <input required ng-model="user.UserName">
                 </md-input-container>
+
+                <md-input-container>
+                    <label>姓名</label>
+                    <input required ng-model="user.Name">
+                </md-input-container>
+
             </div>
             <div layout="row">
                 <md-input-container>
@@ -36,7 +39,7 @@
                 <md-input-container>
                     <label>角色</label>
                     <md-select required ng-model="user.Role">
-                        <md-option ng-value="scrumRole" ng-repeat="scrumRole in ScrumRoles">{{scrumRole.name}}</md-option>
+                        <md-option ng-value="scrumRole.id" ng-repeat="scrumRole in ScrumRoles">{{scrumRole.name}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -45,16 +48,16 @@
                     <label>密码</label>
                     <input required ng-model="user.Password" type="password">
                 </md-input-container>
-                <md-input-container>
-                    <label>确认密码</label>
-                    <input required ng-model="user.RepeatPassword" type="password">
-                </md-input-container>
+                <!--<md-input-container>-->
+                    <!--<label>确认密码</label>-->
+                    <!--<input required ng-model="user.RepeatPassword"  type="password">-->
+                <!--</md-input-container>-->
             </div>
 
         </form>
 
         <div class="pull-right">
-            <md-button class="md-raised md-primary" ng-disabled="user.$invalid" ng-click="submitRegisterRequest()">提交</md-button>
+            <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="submitRegisterRequest()">提交</md-button>
             <md-button class="md-raised" ng-click="backToLoginPage()">返回登录</md-button>
         </div>
     </md-content>

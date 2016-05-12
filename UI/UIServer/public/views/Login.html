@@ -1,29 +1,32 @@
 <div ng-controller="LoginCtrl" style="padding-top: 5%;" layout-align="center" layout="row" ng-cloak >
-    <md-content md-whiteframe="10" >
+   <form role="form" name="userForm">
 
-        <div>
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <h1>Scrum开发管理系统--登录</h1>
-                </div>
-            </md-toolbar>
-        </div>
+       <md-content md-whiteframe="10" >
 
-        <div class="layout-padding">
-            <md-input-container>
-                <label>Email</label>
-                <input ng-model="user.email" type="email">
-            </md-input-container>
-            <br>
-            <md-input-container>
-                <label>Password</label>
-                <input ng-model="user.password" type="password">
-            </md-input-container>
-        </div>
-        <div class="pull-right">
-            <md-button class="md-raised md-primary">进入系统</md-button>
-            <md-button class="md-raised" ng-click="onRegisterButtonClicked()">注册</md-button>
-        </div>
-    </md-content>
+           <div>
+               <md-toolbar>
+                   <div class="md-toolbar-tools">
+                       <h1>Scrum开发管理系统--登录</h1>
+                   </div>
+               </md-toolbar>
+           </div>
+
+           <div class="layout-padding">
+               <md-input-container>
+                   <label>用户名</label>
+                   <input ng-model="user.UserName" required>
+               </md-input-container>
+               <br>
+               <md-input-container>
+                   <label>密码</label>
+                   <input ng-model="user.Password" type="password" required>
+               </md-input-container>
+           </div>
+           <div class="pull-right">
+               <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid", ng-click="onLoginButtonClicked()">进入系统</md-button>
+               <md-button class="md-raised" ng-click="onRegisterButtonClicked()">注册</md-button>
+           </div>
+       </md-content>
+   </form>
 
 </div>

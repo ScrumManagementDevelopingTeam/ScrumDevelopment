@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var cors = require("cors");
 var app = express();
 var mongodbCon = require("./models/connection");
 // view engine setup
@@ -21,6 +21,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//允许跨域
+
+app.use(cors());
+
 
 app.use('/', routes);
 app.use('/Users', users);

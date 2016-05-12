@@ -1,15 +1,15 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var userSchema = require("./Users.js");
 
 var TeamSchema = Schema({
-    TeamName:String,
-    TeamDescription:String,
-    Users:[userSchema]
+    Name:String,
+    Description:String,
+    ProjectId:String,
+    ProjectName:String,
 }, {collection:"Teams"});
 
+
 mongoose.model("Teams", TeamSchema);
-console.log("Team Schema Loaded");
+console.log("User Schema Loaded");
 
-
-module.exports = TeamSchema;
+module.exports = mongoose.model("Teams");

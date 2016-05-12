@@ -1,5 +1,5 @@
 <md-dialog aria-label="新建项目"  ng-cloak>
-    <form id="project" role="form" name="Project" layout="column">
+    <form id="project" role="form" name="ProjectForm" layout="column">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>新建项目</h2>
@@ -39,7 +39,7 @@
                 <!--More on Wikipedia-->
             <!--</md-button>-->
             <span flex></span>
-            <md-button ng-disabled="Project.$invalid" ng-click="answer('not useful')">
+            <md-button ng-disabled="ProjectForm.$invalid" ng-click="answer(Project)">
                 确定
             </md-button>
             <md-button ng-click="answer('useful')" style="margin-right:20px;">

@@ -8,7 +8,7 @@
                 <md-list style="height: 25em;" >
                     <md-subheader class="md-no-sticky">当前系统中的用户</md-subheader>
 
-                    <md-list-item style="height: 4.3em;" ng-repeat="item in Users" ng-click="null">
+                    <md-list-item style="height: 4.3em;" ng-repeat="item in Users" ng-click="onUserItemClicked(item)">
                         <div class="md-list-item-text" layout="column">
                             <h4>{{ item.Name }}</h4>
                         </div>
@@ -18,12 +18,12 @@
             </md-content>
 
         </div>
-        <div flex>
+        <div flex >
             <md-content>
-                <md-button class="md-fab md-mini md-primary" ng-click="showAddProductBacklogDialog()" aria-label="添加工程">
+                <md-button class="md-fab md-mini md-primary"  aria-label="添加工程">
                     <md-icon md-svg-src="img/icons/ic_add_box_white_48px.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+                <md-button class="md-fab md-mini md-primary" ng-hide="!CurrentUser" ng-click="showSelectTeamDialog()" aria-label="添加工程">
                     <md-icon md-svg-src="img/icons/ic_border_color_white_48px.svg"></md-icon>
                 </md-button>
                 <md-button class="md-fab md-mini" aria-label="添加工程">
@@ -40,13 +40,13 @@
                     <div class="md-title">
                         用户姓名
                     </div>
-                    <p>陈天运</p>
+                    <p>{{CurrentUser.Name}}</p>
                     <div layout="row">
                         <div>
                             <div class="md-title">
                                 用户所属团队
                             </div>
-                            <p>天职国际工作平台V4.0开发团队</p>
+                            <p>{{CurrentUser.TeamName}}</p>
                         </div>
 
                         <!--<div style="padding-left: 30pt;">-->

@@ -5,7 +5,9 @@ var UserSchema = Schema({
     UserName:String,
     Password:String,
     Name:String,
-    TeamId:String
+    TeamId:String,
+    Role:Number,
+    TeamName:String //所在团队队名
 }, {collection:"Users"});
 
 

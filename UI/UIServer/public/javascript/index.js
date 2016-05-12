@@ -2,6 +2,10 @@
  * Created by RaynorChan on 3/19/16.
  */
 app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $location) {
+
+    $scope.LoginUserInfo = LoginControl.GetUserInfo();
+    $scope.LoginUserInfo.ScrumRoleName = ClientConst.GetScrumRolesById($scope.LoginUserInfo.Role);
+
     $scope.menuItems = [
         {
             text:"项目管理",
@@ -228,7 +232,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
 
     })
     //项目管理部分
-    .controller("ProjectCtrl", function ($scope, $mdDialog, $mdMedia) {
+    .controller("ProjectCtrl", function ($scope, $mdDialog, $mdMedia, $http) {
         changeToolbarTitle($scope, "项目管理");
 
         //弹出添加项目对话框
@@ -244,7 +248,10 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
                     fullscreen: useFullScreen
                 })
                 .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
+                    console.log(answer);
+                    $http.put(BaseApiServer + "Projects", answer).then(function (receivedContent) {
+                        getProjects();
+                    })
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -255,107 +262,18 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             });
         };
 
-        var imagePath = 'img/list/60.jpeg';
-        $scope.todos = [
-            {
-                face : imagePath,
-                what: '2016大唐审计管理系统',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '2016天职工程工作平台',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '项目3',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '项目4',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '项目5',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '项目6',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: '项目7',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            }
-        ];
+        getProjects();
+
+        function getProjects(){
+            $http.get(BaseApiServer + "Projects").then(function (receivedContent) {
+                $scope.Projects = receivedContent.data;
+            });
+        }
+
+        $scope.onProjectItemClicked = function (project) {
+            $scope.currentSelectedProject = project;
+        }
+
     })
     .controller("IndexCtrl", function($scope){
 
@@ -590,15 +508,63 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         }
 
     })
-    .controller("UsersCtrl", function($scope){
+    .controller("UsersCtrl", function($scope, $http, $mdToast, $mdDialog, $mdMedia){
         changeToolbarTitle($scope, "用户管理");
 
-        $scope.Users = [{Name:"陈天运", Id:guid()}];
-        for (var i = 1; i<=10; i++){
-            $scope.Users.push({
-                Name:"用户"+i,
-                Id:guid()
+
+        $scope.showSelectTeamDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "SelectTeamCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/SelectTeam.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Team) {
+
+                    $http.post(BaseApiServer+"Users/"+$scope.CurrentUser._id+"/Team/"+Team.id, {}).then(function (receivedContent) {
+                        $scope.CurrentUser = receivedContent.data;
+                        getAllUsers();
+                    })
+
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+        function getAllUsers(){
+
+            $http.get(BaseApiServer+"Users").then(function (receivedContent) {
+                $scope.Users = receivedContent.data;
+
+            }, function (receivedContent) {
+                showToast("拉取用户信息失败", $mdToast)
             })
+        }
+
+        getAllUsers();
+
+
+        $scope.onUserItemClicked = function (user) {
+            $scope.CurrentUser = user;
+            $http.get(BaseApiServer+"Teams/"+user.TeamId).then(function (receivedContent) {
+                console.log(user.TeamId);
+                $scope.CurrentSelectedUserTeam = receivedContent.data;
+            })
+        };
+
+        $scope.onChangeUserTeamClicked = function () {
+            if ($scope.CurrentUser){
+
+            }
         }
     })
     .controller("BugCtrl", function($scope, $mdMedia, $mdDialog){
@@ -644,16 +610,98 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("RetrospectiveMeetingCtrl", function($scope){
 
     })
-    .controller("TeamCtrl", function($scope){
+    .controller("TeamCtrl", function($scope, $mdMedia, $mdDialog, $mdToast, $http){
         changeToolbarTitle($scope, "团队管理");
-        $scope.Teams = [{TeamId:guid(), TeamName:"天职国际工作平台V4.0开发团队", TeamDescription:"天职国际"}];
-        for(var i = 1; i<=10; i++){
-            $scope.Teams.push({
-                TeamId : guid(),
-                TeamName: "测试团队"+i,
-                TeamDescription: "测试团队"+i
-            })
+
+
+        $scope.showAddTeamBacklog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddTeamCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddTeam.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Team) {
+
+                    $http.put(BaseApiServer+"Teams", Team).then(function (recivedContent) {
+
+
+                        showToast("添加成功", $mdToast);
+
+                        getTeamList();
+                    }, function (recivedContent) {
+                        showToast("添加失败", $mdToast);
+                    })
+
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+
+        $scope.showSelectProjectDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "SelectProjectCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/SelectProject.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Project) {
+
+                    $http.post(BaseApiServer+"Teams/"+$scope.CurrentSelectedTeam._id+"/Project/"+Project.id, {}).then(function (receivedContent) {
+                        $scope.CurrentSelectedTeam = receivedContent.data;
+                        getTeamList();
+                    })
+
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+
+        $scope.onTeamItemClicked = function (item) {
+
+            $scope.CurrentSelectedTeam = item;
+
+            $http.get(BaseApiServer+"Teams/"+item._id+"/Users").then(function (recivedContent) {
+                $scope.CurrentTeamUsers = recivedContent.data;
+                console.log($scope.CurrentTeamUsers);
+            }, function (recivedContent) {
+                showToast("获取用户列表失败", $mdToast);
+            });
+        };
+
+        $scope.onSelectProjectClicked = function () {
+
         }
+
+        function getTeamList(){
+            $http.get(BaseApiServer+"Teams").then(function (recivedContent) {
+                $scope.Teams = recivedContent.data;
+            }, function (recivedContent) {
+                showToast("获取团队列表失败", $mdToast);
+            });
+        }
+
+        getTeamList();
     })
     .controller("BurningDownChartCtrl", function ($scope) {
         //the burning down chart container id is BurningDownChartContainer
@@ -740,6 +788,18 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             $mdDialog.hide(answer);
         };
     })
+    .controller("AddTeamCtrl", function ($scope, $mdDialog){
+        //Dialog Operationsanswer
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
     .controller("AddBugCtrl", function($scope, $mdDialog){
 
         $scope.SprintBacklogs = [];
@@ -774,7 +834,54 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         $scope.answer = function(answer) {
             $mdDialog.hide(answer);
         };
-    });
+    })
+    .controller("SelectTeamCtrl", function ($scope, $mdDialog, $http) {
+
+        function getTeamList(){
+            $http.get(BaseApiServer+"Teams").then(function (recivedContent) {
+                $scope.Teams = recivedContent.data;
+            }, function (recivedContent) {
+                showToast("获取团队列表失败", $mdToast);
+            });
+        }
+
+        getTeamList();
+
+
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
+    .controller("SelectProjectCtrl", function ($scope, $mdDialog, $http) {
+
+        function getTeamList(){
+            $http.get(BaseApiServer+"Projects").then(function (recivedContent) {
+                $scope.Projects = recivedContent.data;
+            }, function (recivedContent) {
+                showToast("获取团队列表失败", $mdToast);
+            });
+        }
+
+        getTeamList();
+
+
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+        };
+    })
+;
 
 
 /**
@@ -784,6 +891,12 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
  */
 function changeToolbarTitle($scope, title){
     $scope.$emit('toolbarTitleChanged', title);
+}
+
+function showToast(message, $mdToast){
+    $mdToast.show($mdToast.simple().textContent(message).position("top right")).then(function () {
+
+    });
 }
 
 /**

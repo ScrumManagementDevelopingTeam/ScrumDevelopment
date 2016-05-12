@@ -1,0 +1,33 @@
+<md-dialog aria-label="选择项目"  ng-cloak>
+    <form id="project" role="form" name="SelectProjectForm" layout="column">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>选择项目</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-input-container>
+                <label>项目列表</label>
+                <md-select required ng-model="Project.id">
+                    <md-option ng-value="project._id" ng-repeat="project in Projects">{{project.Name}}</md-option>
+                </md-select>
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+            <!--More on Wikipedia-->
+            <!--</md-button>-->
+            <span flex></span>
+            <md-button ng-disabled="SelectProjectForm.$invalid" ng-click="answer(Project)">
+                确定
+            </md-button>
+            <md-button ng-click="answer()" style="margin-right:20px;">
+                取消
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

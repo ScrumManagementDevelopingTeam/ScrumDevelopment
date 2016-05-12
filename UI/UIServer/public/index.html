@@ -21,8 +21,8 @@
                 md-whiteframe="4">
             <md-toolbar class="md-theme-indigo">
                 <h1 class="md-toolbar-tools">
-                    <span>欢迎:用户1
-                        <br>当前角色:Scrum Master</span>
+                    <span>欢迎:{{LoginUserInfo.Name}}
+                        <br>当前角色:{{LoginUserInfo.ScrumRoleName}}</span>
                     <span flex></span>
                     <md-button class="md-icon-button" ng-click="toggleLeft()" hide-gt-md aria-label="收起菜单">
                         <md-icon md-svg-icon="img/icons/tabs-arrow.svg" style="color: greenyellow;"></md-icon>
@@ -109,6 +109,8 @@
 
 <!-- Your application bootstrap  -->
 
+<script type="text/javascript" src="javascript/common.js"></script>
+<script type="text/javascript" src="javascript/ClientConst.js"></script>
 <script type="text/javascript" src="javascript/IndexApp.js"></script>
 <script type="text/javascript" src="javascript/index.js"></script>
 <script type="text/javascript" src="./javascript/controller/AdminCtrl.js"></script>

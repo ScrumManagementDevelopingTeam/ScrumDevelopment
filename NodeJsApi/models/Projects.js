@@ -3,10 +3,14 @@
  */
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var teamSchema = require("./Teams.js");
 
 var ProjectSchema = Schema({
     Name:String,
     Description:String,
-    Teams:[teamSchema],
-});
+    CreateTime:Date,
+    ExpiredDeliverTime:Date,
+
+}, {collection:"Projects"});
+mongoose.model("Projects", ProjectSchema)
+console.log("Project Schema loaded")
+module.exports = mongoose.model("Projects")
