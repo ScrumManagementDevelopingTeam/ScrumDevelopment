@@ -96,9 +96,25 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductBacklogsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\SprintBacklogsController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Context\ProductBacklogContext.cs" />
+    <Compile Include="Models\Context\ProjectContext.cs" />
+    <Compile Include="Models\Context\SprintBacklogContext.cs" />
+    <Compile Include="Models\Context\TeamContext.cs" />
+    <Compile Include="Models\Context\UserContext.cs" />
+    <Compile Include="Models\Table\ProductBacklog.cs" />
+    <Compile Include="Models\Table\Project.cs" />
+    <Compile Include="Models\Table\Team.cs" />
+    <Compile Include="Models\Table\SprintBacklog.cs" />
+    <Compile Include="Models\Table\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,8 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
