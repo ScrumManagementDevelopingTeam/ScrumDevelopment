@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82631ff2-46db-498a-80af-f9c8ff23c8db" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/Tokens.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascript/common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/AddTeam.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/SelectProject.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/SelectTeam.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJSApi/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../NodeJSApi/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJSApi/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../NodeJSApi/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJSApi/app.js" afterPath="$PROJECT_DIR$/../../NodeJSApi/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJSApi/package.json" afterPath="$PROJECT_DIR$/../../NodeJSApi/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJSApi/routes/index.js" afterPath="$PROJECT_DIR$/../../NodeJSApi/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJsApi/config.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJsApi/models/Projects.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/Projects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJsApi/models/Teams.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/Teams.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJsApi/models/Users.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/Users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../NodeJsApi/models/connection.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/connection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/ProductBacklogs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/SprintBacklogs.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../NodeJsApi/models/SprintBacklog.js" afterPath="$PROJECT_DIR$/../../NodeJsApi/models/Bug.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Login.html" afterPath="$PROJECT_DIR$/public/Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/ClientConst.js" afterPath="$PROJECT_DIR$/public/javascript/ClientConst.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/IndexApp.js" afterPath="$PROJECT_DIR$/public/javascript/IndexApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/LoginApp.js" afterPath="$PROJECT_DIR$/public/javascript/LoginApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/LoginController.js" afterPath="$PROJECT_DIR$/public/javascript/LoginController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/RegisterController.js" afterPath="$PROJECT_DIR$/public/javascript/RegisterController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index.js" afterPath="$PROJECT_DIR$/public/javascript/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/DialogTemplates/AddProject.html" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/AddProject.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Login.html" afterPath="$PROJECT_DIR$/public/views/Login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Project.html" afterPath="$PROJECT_DIR$/public/views/Project.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Register.html" afterPath="$PROJECT_DIR$/public/views/Register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Team.html" afterPath="$PROJECT_DIR$/public/views/Team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Users.html" afterPath="$PROJECT_DIR$/public/views/Users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/Bugs.html" afterPath="$PROJECT_DIR$/public/views/Bugs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html" afterPath="$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/ProductBacklog.html" afterPath="$PROJECT_DIR$/public/views/ProductBacklog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/SprintBacklog.html" afterPath="$PROJECT_DIR$/public/views/SprintBacklog.html" />
     </list>
     <ignored path="UIServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,28 +35,78 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascript/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1889763">
-              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.5511811">
+              <caret line="915" column="0" selection-start-line="915" selection-start-column="0" selection-end-line="915" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascript/IndexApp.js">
+      <file leaf-file-name="AddSprintBacklog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.764706">
+              <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#div#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascript/common.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="83" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascript/LoginApp.js">
+      <file leaf-file-name="SprintBacklog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/SprintBacklog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+            <state vertical-scroll-proportion="-8.823529">
+              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+              <folding>
+                <element signature="n#style#0;n#span#1;n#h2#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductBacklog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/ProductBacklog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.5882353">
+              <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="89" />
+              <folding>
+                <element signature="n#style#0;n#span#1;n#h2#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bugs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/Bugs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddProductBacklog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.583333">
+              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -95,8 +125,8 @@
       <file leaf-file-name="Project.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/Project.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375">
-              <caret line="24" column="94" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
+            <state vertical-scroll-proportion="-15.625">
+              <caret line="45" column="81" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="81" />
               <folding>
                 <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
               </folding>
@@ -104,51 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectTeam.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/SelectTeam.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="24" column="82" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Team.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/Team.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.083333">
+            <state vertical-scroll-proportion="-23.75">
               <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddTeam.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddTeam.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.458333">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddProject.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddProject.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.083334">
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Users.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/Users.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -174,11 +164,6 @@
         <option value="$PROJECT_DIR$/public/views/BurnDownChart.html" />
         <option value="$PROJECT_DIR$/public/views/BugManagement.html" />
         <option value="$PROJECT_DIR$/public/views/BurningDownChart.html" />
-        <option value="$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html" />
-        <option value="$PROJECT_DIR$/public/views/SprintBacklog.html" />
-        <option value="$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html" />
-        <option value="$PROJECT_DIR$/public/views/ProductBacklog.html" />
-        <option value="$PROJECT_DIR$/public/views/Bugs.html" />
         <option value="$PROJECT_DIR$/public/views/DialogTemplates/AddBug.html" />
         <option value="$PROJECT_DIR$/public/views/index.html" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -199,8 +184,13 @@
         <option value="$PROJECT_DIR$/public/views/Project.html" />
         <option value="$PROJECT_DIR$/public/views/Users.html" />
         <option value="$PROJECT_DIR$/public/views/DialogTemplates/SelectProject.html" />
-        <option value="$PROJECT_DIR$/public/javascript/index.js" />
         <option value="$PROJECT_DIR$/public/views/Team.html" />
+        <option value="$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html" />
+        <option value="$PROJECT_DIR$/public/views/ProductBacklog.html" />
+        <option value="$PROJECT_DIR$/public/views/SprintBacklog.html" />
+        <option value="$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html" />
+        <option value="$PROJECT_DIR$/public/views/Bugs.html" />
+        <option value="$PROJECT_DIR$/public/javascript/index.js" />
       </list>
     </option>
   </component>
@@ -268,6 +258,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UIServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UIServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -304,46 +308,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DialogTemplates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UIServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascript" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -362,7 +326,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="teamctrl&#9;null&#9;null&#10;team.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;select&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/SelectProject.html&#10;tea&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;selectprojectctrl&#9;null&#9;null&#10;selectteamctrl&#9;null&#9;null&#10;userctrl&#9;null&#9;null&#10;team&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;projectctrl&#9;null&#9;null&#10;user&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Users.html&#10;project.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;users&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Users.html&#10;project&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;project.ht&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;addproject&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddProject.html&#10;userctr&#9;null&#9;null&#10;usersctrl&#9;null&#9;null&#10;selectteam&#9;null&#9;null&#10;addteamctrl&#9;null&#9;null&#10;t&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddTeam.html&#10;bugctrl&#9;null&#9;null&#10;burndownchartctrl&#9;null&#9;null&#10;ProductBacklog&#9;null&#9;null&#10;sprintbacklog.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/SprintBacklog.html&#10;sprintbacklogctrl&#9;null&#9;null&#10;sprintbacklogctr&#9;null&#9;null&#10;index.js&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/javascript/index.js&#10;addproject.&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddProject.html&#10;product&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="teamctrl&#9;null&#9;null&#10;addbug&#9;null&#9;null&#10;bugctrl&#9;null&#9;null&#10;sprintbacklog.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/SprintBacklog.html&#10;addsprintbacklog&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddSprintBacklog.html&#10;sprintbacklogctrl&#9;null&#9;null&#10;addsprintbacklogctrl&#9;null&#9;null&#10;addsprintba&#9;null&#9;null&#10;sprintbacklog&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddSprintBacklog.html&#10;addproductbacklogctrl&#9;null&#9;null&#10;addsprintbacklog.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddSprintBacklog.html&#10;sprintBacklogCtrl&#9;null&#9;null&#10;addsprint&#9;null&#9;null&#10;addsprintb&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddSprintBacklog.html&#10;sprint&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/SelectProject.html&#10;productbacklogctrl&#9;null&#9;null&#10;productbacklog.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;productba&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;produc&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddProductBacklog.html&#10;productbac&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;productbak&#9;null&#9;null&#10;productbacklog.ht&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;productbackloc&#9;null&#9;null&#10;addproductbacklog&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddProductBacklog.html&#10;ProductBacklog.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;productBacklog&#9;null&#9;null&#10;product&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/ProductBacklog.html&#10;backlogctrl&#9;null&#9;null&#10;team.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;select&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/SelectProject.html&#10;tea&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;selectprojectctrl&#9;null&#9;null&#10;selectteamctrl&#9;null&#9;null&#10;userctrl&#9;null&#9;null&#10;team&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Team.html&#10;projectctrl&#9;null&#9;null&#10;user&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Users.html&#10;project.html&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;users&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Users.html&#10;project&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;project.ht&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/Project.html&#10;addproject&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddProject.html&#10;userctr&#9;null&#9;null&#10;usersctrl&#9;null&#9;null&#10;selectteam&#9;null&#9;null&#10;addteamctrl&#9;null&#9;null&#10;t&#9;FILE&#9;file:///Users/RaynorChan/Developing/GraduationAssesment/ScrumManagement/UI/UIServer/public/views/DialogTemplates/AddTeam.html&#10;burndownchartctrl&#9;null&#9;null&#10;ProductBacklog&#9;null&#9;null&#10;sprintbacklogctr&#9;null&#9;null" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="47" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="59" />
@@ -477,7 +441,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29591838" sideWeight="0.50934297" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24954791" sideWeight="0.33768117" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892057" sideWeight="0.4930681" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29591838" sideWeight="0.49065703" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29591838" sideWeight="0.49065703" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24954791" sideWeight="0.5040816" order="2" side_tool="true" content_ui="tabs" />
@@ -490,6 +454,14 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -634,27 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.25">
-          <caret line="50" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/ProductBacklog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="74" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/Bugs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="67" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -687,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/SprintBacklog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.833333">
-          <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -761,22 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="56" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddBug.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.083333">
@@ -825,36 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/Project.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="24" column="94" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
-          <folding>
-            <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/Users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.875">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/SelectProject.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/Team.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.083333">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -875,10 +777,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/Project.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.625">
+          <caret line="45" column="81" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddProductBacklog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.583333">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/SelectProject.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/Team.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.75">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/SprintBacklog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.823529">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#h2#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#1;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/DialogTemplates/AddSprintBacklog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.764706">
+          <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#div#0;n#md-dialog-content#0;n#form#0;n#md-dialog#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/ProductBacklog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5882353">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#h2#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-list-item#0;n#md-list#0;n#md-content#0;n#div#0;n#div#0;n#md-content#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/Bugs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1889763">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.5511811">
+          <caret line="915" column="0" selection-start-line="915" selection-start-column="0" selection-end-line="915" selection-end-column="0" />
           <folding />
         </state>
       </provider>

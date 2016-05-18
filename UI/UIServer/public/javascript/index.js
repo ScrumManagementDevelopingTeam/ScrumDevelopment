@@ -1,6 +1,11 @@
 /**
  * Created by RaynorChan on 3/19/16.
  */
+
+var globalData = {};
+globalData.selectedProductBacklog = null;
+globalData.selectedSprintBacklog = null;
+
 app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $location) {
 
     $scope.LoginUserInfo = LoginControl.GetUserInfo();
@@ -20,13 +25,14 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             url:"/Users"
         },
         {
-            text:"Sprint Backlog管理",
-            url:"/SprintBacklog"
-        },
-        {
             text:"Product Backlog管理",
             url:"/ProductBacklog"
         },
+        {
+            text:"Sprint Backlog管理",
+            url:"/SprintBacklog"
+        },
+
         {
             text:"查看燃尽图",
             url:"/BurningDownChart"
@@ -34,22 +40,6 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         {
             text:"Bug管理",
             url:"/Bugs"
-        },
-        {
-            text:"迭代会议情况",
-            url:"/Project"
-        },
-        {
-            text:"回顾会议情况",
-            url:"/Project"
-        },
-        {
-            text:"评审会议情况",
-            url:"/Project"
-        },
-        {
-            text:"管理员",
-            url:"/Project"
         }
 
     ];
@@ -278,13 +268,14 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     .controller("IndexCtrl", function($scope){
 
     })
-    .controller("SprintBacklogCtrl", function($scope, $mdMedia, $mdDialog){
+    .controller("SprintBacklogCtrl", function($scope, $mdMedia, $mdDialog, $http){
         changeToolbarTitle($scope, "Sprint Backlog 管理");
-        $scope.currentProject = {};
-        $scope.currentProject.name = "项目1";
 
-        //弹出添加项目对话框
+        //弹出添加Sprint Backlog对话框
         $scope.showAddSprintBacklogDialog = function (ev) {
+
+            globalData.selectedSprintBacklog = null;
+
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
             $mdDialog.show({
                     controller: "AddSprintBacklogCtrl",
@@ -295,8 +286,13 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen
                 })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
+                .then(function (SprintBacklog) {
+                    var productBacklogId = $scope.SelectedProductBacklog._id;
+
+                    $http.put(BaseApiServer +"ProductBacklogs/" + productBacklogId + "/SprintBacklogs", SprintBacklog).then(function (receivedContent) {
+
+                        GetSprintBacklog();
+                    })
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -307,150 +303,94 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             });
         };
 
-        $scope.projects = [
 
 
-        ];
-        for (var j = 1; j<=10; j++){
-            $scope.projects.push({
-                Id: guid(),
-                Name:"项目"+j,
-                CreateTime:Date.now(),
-                ExpiredDeliverTime:Date.now(),
-                Description:"项目"+j+"描述"
+        //修改SprintBacklog
+        $scope.showModifySprintBacklogDialog = function (ev, sprintBacklog) {
+
+            globalData.selectedSprintBacklog = sprintBacklog;
+
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "AddSprintBacklogCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/AddSprintBacklog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (SprintBacklog) {
+
+
+                    $http.post(BaseApiServer + "SprintBacklogs/" + SprintBacklog._id, SprintBacklog).then(function (receivedContent) {
+
+                        GetSprintBacklog();
+                    })
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
             });
-        }
+        };
 
-        $scope.ProductBacklogs = [
+        $scope.showSelectProjectDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "SelectProjectCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/SelectProject.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Project) {
 
-        ];
+                    $http.get(BaseApiServer+"Projects/"+Project.id).then(function (receivedContent) {
+                        $scope.SelectedProject = receivedContent.data; //获取项目
+                        //获取ProductBacklog
+                        GetProductBacklog();
+                        $scope.SprintBacklogs = [];
+                    })
 
-        for (var i=1; i<=10; i++){
-            $scope.ProductBacklogs.push({
-                Id: guid(),
-                UserStory:"用户故事"+i,
-                Order:i,
-                CreateTime:Date.now(),
-            })
-        }
-
-        $scope.SprintBacklogs = [];
-
-        for (var i = 1; i<=10; i++){
-            $scope.SprintBacklogs.push({
-                id:guid(),
-                MissionTitle:"任务标题" +i,
-                Mission:"任务详细描述"+i,
-                CreateTime:Date.now()
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
             });
         };
 
 
+        $scope.onProductBacklogItemClicked = function onProductBacklogItemClicked (selectedProductBacklog) {
+            $scope.SelectedProductBacklog = selectedProductBacklog;
+            globalData.selectedProductBacklog = selectedProductBacklog;
 
+            console.log(selectedProductBacklog);
+            GetSprintBacklog();
 
-        var imagePath = 'img/list/60.jpeg';
-        $scope.todos = [
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                face : imagePath,
-                what: 'Brunch this weekend?',
-                who: 'Min Li Chan',
-                when: '3:08PM',
-                notes: " I'll be in your neighborhood doing errands"
-            }
-        ];
+        };
+        function GetProductBacklog(){
+            $http.get(BaseApiServer + "Projects/" + $scope.SelectedProject._id +"/ProductBacklogs").then(function (receivedBacklog) {
+                $scope.ProductBacklogs = receivedBacklog.data;
+            })
+        }
+
+        function GetSprintBacklog(){
+            var selectedProductBacklogId =  $scope.SelectedProductBacklog._id;
+            $http.get(BaseApiServer +"ProductBacklogs/" + selectedProductBacklogId + "/SprintBacklogs").then(function (receivedContent) {
+                $scope.SprintBacklogs = receivedContent.data;
+            })
+        }
+
     })
-    .controller("ProductBacklogCtrl", function($scope, $mdMedia, $mdDialog){
+    .controller("ProductBacklogCtrl", function($scope, $mdMedia, $mdDialog, $http, $mdToast){
         changeToolbarTitle($scope, "Product Backlog 管理");
         $scope.currentProject = {};
         $scope.currentProject.name = "项目1";
@@ -467,8 +407,11 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen
                 })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
+                .then(function (ProductBacklog) {
+
+                    AddproductBacklog(ProductBacklog);
+                    GetProductBacklog(); //刷新显示
+
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -479,32 +422,64 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
             });
         };
 
+        $scope.showSelectProjectDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "SelectProjectCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/SelectProject.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Project) {
 
-        $scope.projects = [
+                    $http.get(BaseApiServer+"Projects/"+Project.id).then(function (receivedContent) {
+                        $scope.SelectedProject = receivedContent.data; //获取项目
+                         //获取ProductBacklog
+                        GetProductBacklog()
+                    })
 
-
-        ];
-        for (var j = 1; j<=10; j++){
-            $scope.projects.push({
-                Id: guid(),
-                Name:"项目"+j,
-                CreateTime:Date.now(),
-                ExpiredDeliverTime:Date.now(),
-                Description:"项目"+j+"描述"
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
             });
+        };
+
+         function GetProductBacklog(){
+            $http.get(BaseApiServer + "Projects/" + $scope.SelectedProject._id +"/ProductBacklogs").then(function (receivedBacklog) {
+                $scope.ProductBacklogs = receivedBacklog.data;
+            })
+        }
+         function AddproductBacklog(productBacklog){
+            $http.put(BaseApiServer+"Projects/"+$scope.SelectedProject._id +"/ProductBacklogs", productBacklog).then(function () {
+                showToast("Product Backlog添加成功", $mdToast);
+            })
         }
 
-        $scope.ProductBacklog = [
+        //提升ProductBacklog的权重
+         $scope.UpvoteProductBacklog = function UpvoteProductBacklog(){
+             $scope.currentSelectedBacklog.Rank += 1 ;
+            $http.post(BaseApiServer +"ProductBacklogs/"+ $scope.currentSelectedBacklog._id+"/Rank/"+ $scope.currentSelectedBacklog.Rank, {}).then(function (receivedData) {
+                GetProductBacklog();
+            });
+        };
 
-        ];
 
-        for (var i=1; i<=10; i++){
-            $scope.ProductBacklog.push({
-                Id: guid(),
-                UserStory:"用户故事"+i,
-                Order:i,
-                CreateTime:Date.now()
-            })
+        $scope.DownVoteProductBacklog = function DownVoteProductBacklog(){
+            $scope.currentSelectedBacklog.Rank -= 1 ;
+            $http.post(BaseApiServer +"ProductBacklogs/"+ $scope.currentSelectedBacklog._id+"/Rank/"+ $scope.currentSelectedBacklog.Rank, {}).then(function (receivedData) {
+                GetProductBacklog();
+            });
+        };
+
+        $scope.OnProductBacklogClicked = function OnProductBacklogClicked (productBacklog) {
+            $scope.currentSelectedBacklog = productBacklog ;
         }
 
     })
@@ -581,6 +556,34 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
                 })
                 .then(function (answer) {
                     $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+
+        $scope.showSelectProjectDialog = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+            $mdDialog.show({
+                    controller: "SelectProjectCtrl",
+                    bindToController: true,
+                    templateUrl: '/views/DialogTemplates/SelectProject.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen
+                })
+                .then(function (Project) {
+
+                    $http.post(BaseApiServer+"Teams/"+$scope.CurrentSelectedTeam._id+"/Project/"+Project.id, {}).then(function (receivedContent) {
+                        $scope.CurrentSelectedTeam = receivedContent.data;
+                        getTeamList();
+                    })
+
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -778,6 +781,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
     })
     .controller("AddSprintBacklogCtrl", function ($scope, $mdDialog){
         //Dialog Operations
+        console.log( globalData.selectedProductBacklog);
         $scope.hide = function() {
             $mdDialog.hide();
         };
@@ -786,7 +790,18 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, $locatio
         };
         $scope.answer = function(answer) {
             $mdDialog.hide(answer);
+            answer.ProductBacklogId = $scope.ProductBacklog._id;
         };
+
+        if (globalData.selectedProductBacklog){
+            $scope.ProductBacklog = globalData.selectedProductBacklog;
+        }
+
+        if (globalData.selectedSprintBacklog){
+            $scope.Mission = globalData.selectedSprintBacklog;
+        }
+
+        console.log( $scope.ProductBacklog);
     })
     .controller("AddTeamCtrl", function ($scope, $mdDialog){
         //Dialog Operationsanswer

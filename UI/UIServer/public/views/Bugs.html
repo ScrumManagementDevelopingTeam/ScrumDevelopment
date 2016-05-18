@@ -1,7 +1,7 @@
 <script src="../javascript/third-party/highcharts.src.js"></script>
 <md-content layout-padding layout="column" ng-cloak>
     <h2 class="md-title">Bug管理<span>
-        <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+        <md-button class="md-fab md-mini md-primary" aria-label="添加工程" ng-click="showSelectProjectDialog()">
             <md-icon md-svg-src="img/icons/ic_launch_white_48px.svg"></md-icon>
         </md-button>
     </span>当前项目:<span style="color: #560f94;">{{currentProject.name}}</span> </h2>

@@ -1,5 +1,5 @@
 <md-dialog aria-label="新建ProductBacklog"  ng-cloak>
-    <form id="project" role="form" name="ProductBacklog" layout="column">
+    <form id="project" role="form" name="ProductBacklogForm" layout="column">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>ProductBacklog</h2>
@@ -18,13 +18,13 @@
                         <input required ng-model="ProductBacklog.UserStoryTitle" type="text">
                     </md-input-container>
                     <md-input-container>
-                        <label>UserStory优先级</label>
-                        <input required ng-model="ProductBacklog.Order" type="number">
+                        <label>UserStory权重</label>
+                        <input required ng-model="ProductBacklog.Rank" type="number">
                     </md-input-container>
                 </div>
                 <div layout="row">
                     <div>
-                        <md-datepicker required ng-model="ProductBacklog.DeadLine" md-placeholder="最晚完成时间"></md-datepicker>
+                        <md-datepicker required ng-model="ProductBacklog.Deadline" md-placeholder="最晚完成时间"></md-datepicker>
                     </div>
 
                 </div>
@@ -42,7 +42,7 @@
             <!--More on Wikipedia-->
             <!--</md-button>-->
             <span flex></span>
-            <md-button ng-disabled="ProductBacklog.$invalid" ng-click="answer('not useful')">
+            <md-button ng-disabled="ProductBacklogForm.$invalid" ng-click="answer(ProductBacklog)">
                 确定
             </md-button>
             <md-button ng-click="answer('useful')" style="margin-right:20px;">

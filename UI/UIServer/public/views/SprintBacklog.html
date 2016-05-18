@@ -1,9 +1,9 @@
 <md-content layout-padding layout="column" ng-cloak>
     <h2 class="md-title">Sprint Backlog 管理<span>
-        <md-button class="md-fab md-mini md-primary" aria-label="添加工程">
+        <md-button class="md-fab md-mini md-primary" ng-click="showSelectProjectDialog()" aria-label="添加工程">
             <md-icon md-svg-src="img/icons/ic_launch_white_48px.svg"></md-icon>
         </md-button>
-    </span>当前项目:<span style="color: #560f94;">{{currentProject.name}}</span> </h2>
+    </span>当前项目:<span style="color: #560f94;">{{SelectedProject.Name}}</span> </h2>
 
     <div layout="row" md-whiteframe="2">
         <div flex>
@@ -12,9 +12,9 @@
                 <md-list style="height: 25em;" >
                     <md-subheader class="md-no-sticky">当前的Product Backlog</md-subheader>
 
-                    <md-list-item style="height: 4.3em;" ng-repeat="item in ProductBacklogs" ng-click="null">
+                    <md-list-item style="height: 4.3em;"  ng-repeat="item in ProductBacklogs |orderBy:'-Rank'" ng-click="onProductBacklogItemClicked(item)">
                         <div class="md-list-item-text" layout="column">
-                            <h4>{{ item.UserStory }}</h4>
+                            <h4>{{ item.UserStoryTitle }}</h4>
                         </div>
                     </md-list-item>
                     <md-divider ></md-divider>
@@ -40,10 +40,10 @@
                     <md-list style="height: 25em;" >
                         <md-subheader class="md-no-sticky">对应的SprintBacklog</md-subheader>
 
-                        <md-list-item style="height: 4.3em;" ng-repeat="item in SprintBacklogs" ng-click="null">
+                        <md-list-item style="height: 4.3em;" ng-repeat="item in SprintBacklogs" ng-click="showModifySprintBacklogDialog(null, item)">
                             <md-checkbox role="checkbox"></md-checkbox>
                             <div class="md-list-item-text" layout="column">
-                                <h4>{{ item.MissionTitle }}</h4>
+                                <h4>{{ item.Title }}</h4>
                             </div>
                         </md-list-item>
                         <md-divider ></md-divider>
